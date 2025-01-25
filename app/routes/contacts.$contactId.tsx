@@ -67,7 +67,7 @@ export default function Contact() {
             method="post"
             onSubmit={(event) => {
               const response = confirm(
-                "Please confirm you want to delete this record."
+                "Please confirm you want to delete this contact."
               );
               if (!response) {
                 event.preventDefault();
