@@ -4,7 +4,7 @@ import {
   Links,
   Scripts,
   ScrollRestoration,
-  useLoaderData
+  useLoaderData,
 } from "@remix-run/react";
 
 import appStylesHref from "./app.css?url";
@@ -27,7 +27,6 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader = contactsLoader;
-
 
 export default function App() {
   const { contacts, q } = useLoaderData<Loader>();
