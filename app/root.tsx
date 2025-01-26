@@ -1,5 +1,4 @@
 import type { LinksFunction } from "@remix-run/node";
-import { redirect } from "@remix-run/node";
 import {
   Links,
   Scripts,
@@ -8,7 +7,6 @@ import {
 } from "@remix-run/react";
 
 import appStylesHref from "./app.css?url";
-import { createEmptyContact } from "./data";
 
 import Sidebar from "./components/Sidebar";
 import Head from "./components/Head";
@@ -16,11 +14,6 @@ import ContactDetails from "./components/ContactDetails";
 
 import { contactsLoader } from "./helpers/ContactsLoader";
 import { Loader } from "./domain/Loader";
-
-export const action = async () => {
-  const contact = await createEmptyContact();
-  return redirect(`/contacts/${contact.id}/edit`);
-};
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
