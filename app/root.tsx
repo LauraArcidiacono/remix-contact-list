@@ -1,6 +1,7 @@
 import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
+  redirect,
   Scripts,
   ScrollRestoration,
   useLoaderData,
@@ -14,6 +15,12 @@ import ContactDetails from "./components/ContactDetails";
 
 import { contactsLoader } from "./helpers/ContactsLoader";
 import { Loader } from "./domain/Loader";
+import { createEmptyContact } from "./data";
+
+export const action = async () => {
+  const contact = await createEmptyContact();
+  return redirect(`/contacts/${contact.id}/edit`);
+};
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
